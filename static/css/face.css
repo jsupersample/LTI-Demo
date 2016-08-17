@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+
+.arrow{
+	padding-top: 10%; 
+	padding-bottom: 10%;
+	font-size: 24pt;
+}
+
+#left_arrow{
+	float:left;
+	padding-right: 10px;
+}
+
+
+#right_arrow{
+	float:right;
+	padding-left: 10px;
+}
+
+#avatar {
+	height: 200px;
+	width: 200px;
+}

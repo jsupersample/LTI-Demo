@@ -1,0 +1,91 @@
+$def with (next,profile,prev)
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Face Reminder</title>
+<!-- Bootstrap core CSS -->
+<link href="static/css/bootstrap.min.css" rel="stylesheet" />
+<!-- Bootstrap theme -->
+<link href="static/css/bootstrap-theme.min.css" rel="stylesheet" />
+<link href="static/css/face.css?v=1.0" rel="stylesheet" />
+</head>
+<body>
+<div class="container" id="content" role="main">
+
+<div class="page-header">
+  		<h1>Face Memorizer <small>Time to learn those students!</small></h1>
+</div>
+
+
+<div class="panel panel-default" style="width: 600px">
+ 
+  <div class="panel-body">
+     <form action="$next" method="POST" id="nextButtonForm">
+	<div  id="right_arrow" class="arrow">
+	$if next=="/?next=default":
+		<a href="#" style="display: none" id="nextArrow" role="button">
+	$else:
+		<a href="#" id="nextArrow" role="button">
+	  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+        </div>
+     </form>
+     <form action="$prev" method="POST" id="prevButtonForm">
+	<div  id="left_arrow" class="arrow">
+	$if prev=="/?prev=default":
+		<a href="#" style="display: none" id="prevArrow" role="button">
+	$else:
+		<a href="#"  id="prevArrow" role="button">
+	  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+        </div>
+     </form>
+    <div class="media">
+ 		 <div class="media-left pull-left">
+    		<a href="#">
+    		 	<img class="media-object" id="avatar" src="$profile["avatar_url"]" alt="$profile["name"]" />
+   			</a>
+ 		 </div>
+ 		 <div class="media-body">
+  			 <h4 class="media-heading">$profile["name"]</h4>
+    		
+    		 <div><strong>email:</strong> $profile["primary_email"]</div>
+    		 <div><strong>login id:</strong> $profile["login_id"]</div>
+    		 <div>
+    		 	<strong>bio:</strong> 
+			$profile["bio"]
+    		 </div>
+    		 
+    		 
+  		</div>
+	</div>
+  </div>
+  
+</div>
+
+
+</div>
+
+
+
+<script src="static/js/jquery-1.8.3.js"></script>
+
+<script src="static/js/bootstrap.min.js"></script>
+<script>
+
+$$(document).ready(function(){
+
+	$$('#nextArrow').click(function(e){
+		console.log("Next handled");
+		$$('#nextButtonForm').submit();
+	});
+	$$('#prevArrow').click(function(e){
+		console.log("Prev handled");
+		$$('#prevButtonForm').submit();
+	});
+
+});
+	
+
+</script>
+</body>
+</html>
