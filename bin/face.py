@@ -1,6 +1,7 @@
 import json
 import web
 import ssl
+import os
 from web.wsgiserver import CherryPyWSGIServer
 from urllib import urlopen
 import urllib
@@ -18,7 +19,7 @@ urls = (
 
 #Url to your canvas installation and private key
 base_url = "https://usflearn.test.instructure.com/api/v1/"
-token="13~S9fPoB71S8rRvnF55z2g2YKzlSJvCnayg3e5gE4278YXXG8VxMrMvowGrqlYsatW"
+token=os.environ['API_KEY']
 
 #set up web.py environment and point to html template
 app = web.application(urls, globals())
