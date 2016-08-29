@@ -18,7 +18,7 @@ urls = (
 )
 
 #Url to your canvas installation and private key
-base_url = "https://usflearn.test.instructure.com/api/v1/"
+base_url = os.environ['BASE_URL']
 token=os.environ['API_KEY']
 
 #set up web.py environment and point to html template
