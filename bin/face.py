@@ -52,13 +52,13 @@ class index: #handle call to index defined above
         else: #This means that "next" is set, so that was clicked. We load that student.
             enrollments_url = urllib.unquote_plus(next)+"&access_token="+token
 
-        u = urlopen(enrollments_url,context=context) #call the Canvas RESTful API.
+        u = urlopen(enrollments_url) #call the Canvas RESTful API.
 
         enrollment = json.loads(u.read())[0] #parse the json object returned by the API
 
         user_id = str(enrollment["user_id"]) #from the json, get the user's numeric id.
         profile_url = "users/"+user_id+"/profile?access_token="+token #build the url to their profile (another API call).
-        profile_request = urlopen(base_url+profile_url, context=context) #grab the profiel from the API.
+        profile_request = urlopen(base_url+profile_url) #grab the profiel from the API.
         profile = json.loads(profile_request.read()) #parse the json returned.
 
         #This section handles the "Link" headers returned by the 
