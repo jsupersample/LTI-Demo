@@ -6,12 +6,6 @@ from web.wsgiserver import CherryPyWSGIServer
 from urllib import urlopen
 import urllib
 
-#Path to certificate and private key file. Snake oil certificates
-#are included.
-#CherryPyWSGIServer.ssl_certificate = "domain.crt"
-#CherryPyWSGIServer.ssl_private_key = "domain.key"
-#context = ssl._create_unverified_context()
-
 #set up path to the html template and map it to the root address
 urls = (
   '/', 'index'
