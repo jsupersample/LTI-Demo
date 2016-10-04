@@ -1,1 +1,1 @@
-web: python bin/face.py $PORT
+web: python bin/ltidemo.py $PORT
